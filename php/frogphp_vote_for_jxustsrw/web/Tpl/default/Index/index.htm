@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><{$title}></title>
+<link href="<{$__BASE__}>/public/css/main.css" type="text/css" rel="stylesheet"/>
+<link href="<{$__BASE__}>/public/css/style.css" type="text/css" rel="stylesheet"/>
+<script src="http://lib.sinaapp.com/js/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body>
+	<div class="header">
+    	<div class="nav">
+    		<span class="index_text">
+    			<a href="http://www.jxustsrw.cn" target="_blank">树人网</a>
+    		</span>
+    		<!-- 
+    		<span class="article_text">
+    			<a href="" target="_blank">文章</a>
+    		</span>
+    		 -->
+    	</div>
+    </div>
+	<div class="container">
+        <div class="left">
+            <div class="box main">
+            	<h3 class="book_title">
+                	<span class="book_title_bg_left"></span>
+                	<span>投票 </span>
+                    <span class="book_title_bg_right"></span>
+                </h3>
+                <div class="clear"></div>
+                 <{nocache}>
+                <div id="chapter_list">
+               
+                	<ul>
+                	<{foreach $models as $model}>
+                        <li>
+                            <a target="_blank" href="<{$model.link}>"><span style="color:red">（票数:<span id="count_<{$model.id}>"><{$model.count}></span>）</span>【<{$model.author}>】<{$model.title}></a>
+                        	<input style="float:right;margin-top:8px;font-size:12px;" type="button" value="投一票" class="btn btn-mini vote_btn" style="margin-left:15px" onclick="_vote(<{$model.id}>)"/>
+                        </li>
+                     <{/foreach}>
+                   </ul>
+                </div>
+                <!-- 分页 -->
+               	<div class="pagination pagination-centered">
+               		<ul>
+               			<{$page}>
+               		</ul>
+               	</div>
+            </div>
+             <{/nocache}>
+        </div>
+        <div class="right">
+        	<div class="box box1">
+        		<h4>投稿邮箱：</h4>
+	        	<div class="vote_info">
+	        		shurenwangwenxue@163.com<br/>
+	        		2372231595@qq.com<br/>
+	        	</div>
+        	</div>
+        	<div class="box box1">
+        		<h4>关于投票：</h4>
+	        	<div class="vote_info">
+	        		每个人有一次投票机会！
+	        	</div>
+        	</div>
+        	<div class="box box1">
+        		<h4>活动简介：</h4>
+	        	<div class="vote_info">
+	        		<b>征文主题：</b><br/>
+	        			(1)中国梦·理工梦·学子梦<br/>
+	        			(2)情<br/>
+	        		<b>投票时间:</b><br/>
+	        			4月5日 - 4月28日<br/>
+	        		<b>评分方式:</b><br/>
+	        			专家评委评分占70%,树人网网络平台评分占30%<br/>
+	        	</div>
+        	</div>
+        	<div class="box box2">
+        		<h4>分享：</h4>
+	        	<div class="vote_info">
+	        		<!-- Baidu Button BEGIN -->
+					<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+					<a class="bds_qzone"></a>
+					<a class="bds_tsina"></a>
+					<a class="bds_tqq"></a>
+					<a class="bds_renren"></a>
+					<a class="bds_t163"></a>
+					<span class="bds_more"></span>
+					</div>
+					<script type="text/javascript" id="bdshare_js" data="type=tools&amp;mini=1&amp;uid=18863" ></script>
+					<script type="text/javascript" id="bdshell_js"></script>
+					<script type="text/javascript">
+					document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+					</script>
+					<!-- Baidu Button END -->
+	        	</div>
+        	</div>
+        	
+        	
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="footer">
+    	<div class="copyright">
+        	&copy;  2013 江西理工大学树人网   Designed By <a href="http://www.ttzxnet.com" target="_blank" style="color:#FFF">SilencePer</a>
+        </div>
+    </div>
+<script>
+	function _vote(id){
+		//ajax投票
+		$.post("<{$__URL__}>/do_vote",{ id: id }, function(data) {
+			  var info=eval("("+data+")");
+			  if(info.code==1){
+				  //投票成功
+				  //原始投票数
+				  var count=$('#count_'+id).text();
+				  count=Number(count)+1;
+				  $('#count_'+id).text(count);
+				  alert(info.mesg);
+			  }else{
+				  //投票失败
+				  alert(info.mesg);
+			  }
+			});
+	}
+</script>
+<div style="display:none">
+<script src="http://s25.cnzz.com/stat.php?id=4770973&web_id=4770973" language="JavaScript"></script>
+</div>
+</body>
+</html>

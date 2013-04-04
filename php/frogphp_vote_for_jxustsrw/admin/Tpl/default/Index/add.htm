@@ -1,0 +1,27 @@
+<{include "./header.htm"}>
+<div class="container" style="width:658px">
+     <div>
+         <div class="box main">
+         	<h3 class="book_title">
+             	<span class="book_title_bg_left"></span>
+             	<span>添加投票</span>
+                 <span class="book_title_bg_right"></span>
+             </h3>
+             <div class="clear"></div>
+             <div id="chapter_list">
+             	<form action="<{$__URL__}>/checkAdd" method="post">
+				   <table class="table" style="text-align:center" align="center">
+				   		<tbody>
+				   			<tr><th>标题：</th><td><input type="text" name="title" size="35"/></td></tr>
+				   			<tr><th>作者：</th><td><input type="text" name="author" size="35"/></td></tr>
+				   			<tr><th>链接：</th><td><input type="text" name="link" size="35"/></td></tr>
+				   			<tr><td colspan="2"><input type="submit" class="btn" value="添加"/></td></tr>
+				   		</tbody>
+				   </table>     	
+				 </form>
+             </div>
+         </div>
+     </div>
+     <div class="clear"></div>
+ </div>
+<{include "./footer.htm"}>

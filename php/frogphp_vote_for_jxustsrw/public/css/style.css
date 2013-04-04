@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+.book_title{
+	text-align:center;
+}
+.book_title_bg_left{
+	background:url(../images/book_title_bg.png) no-repeat;
+	width: 24px;
+	height: 13px;
+	display: inline-block;
+	margin-right: 10px;
+}
+.book_title_bg_right{
+	background:url(../images/book_title_bg.png) -24px 0 no-repeat;
+	width: 24px;
+	height: 13px;
+	display: inline-block;
+	margin-left: 10px;
+}
+.book_title{
+	border-bottom: 1px solid #EDEDED;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	height:50px;
+	line-height:50px;
+	float: left;
+	width: 100%;	
+}
+#chapter_list{
+	width: 590px;
+	margin: 0;
+	padding: 10px 0 10px 40px;
+	min-height:300px;
+}
+#chapter_list li{
+	border-bottom: 1px dashed rgba(126,126,126,0.2);
+	color: #F2F2F2;
+	font-family: arial;
+	font-size: 14px;
+	list-style: disc outside none;
+	width: 100%;
+	line-height: 40px;
+}
+#chapter_list li:hover{
+	border-bottom: 1px dashed #333;
+    color:#0088cc;
+}
+#chapter_list li a{
+	width: 100%;
+    color:#000000;
+}
+#chapter_list li a:hover{
+    color:#3366cc;
+	text-decoration:none;
+}
+/*admin*/
+.table tbody tr input{
+	vertical-align: -22px;
+}
