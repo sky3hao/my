@@ -1,0 +1,25 @@
+1、将weibo文件夹上传至plugins\pubs 内
+2、后台开启此插件
+3、填写密钥  注册 http://open.weibo.com 创建应用获取
+	创建应用之后并在应用信息-高级信息 中填写授权回调页
+		这里填写格式如：
+				你的网站地址/index.php?app=pubs&ac=plugin&plugin=weibo&in=callback
+	回调地址必须填写正确否则可能出现 error:redirect_uri_mismatch 的错误
+
+
+ok！
+
+如果想要微博登入在首页显示的话  例如 http://www.zzblo.com
+可以更改	/home/login/login.php  将相应的代码即可
+	新浪微博登入地址为：
+	你的网址/index.php?app=pubs&ac=plugin&plugin=weibo&in=login
+
+
+
+
+
+注：此插件参考了qq登入插件
+
+有什么问题尽管提出  ！
+	email:silenceper@gmail.com
+	site:http://www.zzblo.com
